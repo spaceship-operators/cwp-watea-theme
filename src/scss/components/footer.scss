@@ -2,6 +2,7 @@
   margin-top: 0;
   background-color: $navbar-default-bg;
   padding: ($line-height-computed * 1.8) 0;
+  @include theme-footer-color;
 
   // Horizontal divder line
   hr {

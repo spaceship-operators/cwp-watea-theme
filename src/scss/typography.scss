@@ -1,3 +1,7 @@
+a {
+  @include theme-color;
+}
+
 h1,
 .h1,
 h2,
@@ -33,6 +37,7 @@ blockquote {
   padding-top: 0;
   padding-bottom: 0;
   border-left: 3px solid $brand-primary;
+  @include theme-accent-color('border-color');
 
   p,
   ul,

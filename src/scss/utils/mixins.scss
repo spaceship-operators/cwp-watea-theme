@@ -31,3 +31,70 @@
     text-shadow: none;
   }
 }
+
+/**
+ * Global theme colors
+ */
+@mixin theme-color {
+  body.theme-tamarillo & {
+    color: $theme-tamarillo;
+  }
+}
+
+/**
+ * Theme accent color. You can specify a different CSS property
+ * to use this color when calling the mixin.
+ * e.g. @include theme-accent-color('color')
+ */
+@mixin theme-accent-color($rule: 'background-color') {
+  body.theme-accent-tamarillo & {
+    #{$rule}: $theme-tamarillo;
+  }
+
+  body.theme-accent-blue-lagoon & {
+    #{$rule}: $theme-blue-lagoon;
+  }
+}
+
+/**
+ * Theme header color
+ */
+@mixin theme-header-color {
+  &.theme-tamarillo {
+    background-color: $theme-tamarillo;
+  }
+
+  &.theme-blue-lagoon {
+    background-color: $theme-blue-lagoon;
+  }
+}
+
+/**
+ * Theme nav color
+ */
+@mixin theme-nav-color {
+  &.theme-tamarillo {
+    background-color: $theme-tamarillo;
+  }
+
+  &.theme-blue-lagoon {
+    background-color: $theme-blue-lagoon;
+  }
+
+  &.theme-purple-heart {
+    background-color: $theme-purple-heart;
+  }
+}
+
+/**
+ * Theme footer color
+ */
+@mixin theme-footer-color {
+  &.theme-tamarillo {
+    background-color: $theme-tamarillo;
+  }
+
+  &.theme-blue-lagoon {
+    background-color: $theme-blue-lagoon;
+  }
+}

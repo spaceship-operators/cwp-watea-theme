@@ -19,10 +19,12 @@
 
   .nav-item.current > a {
     background-color: $brand-primary;
+    @include theme-accent-color;
 
     &:focus,
     &:hover {
       background-color: $brand-primary;
+      @include theme-accent-color;
     }
   }
 
@@ -48,10 +50,12 @@
       &:hover .navbar-touch-caret,
       &:focus .navbar-touch-caret {
         background: $brand-primary;
+        @include theme-accent-color;
 
         &:hover,
         &:focus {
           background-color: $brand-primary;
+          @include theme-accent-color;
         }
       }
     }
@@ -87,6 +91,7 @@
       &:hover:before,
       &:focus:before {
         background: $brand-primary;
+        @include theme-accent-color;
       }
     }
 
@@ -135,15 +140,18 @@
         &:focus,
         &:hover {
           border-bottom-color: $brand-primary;
+          @include theme-accent-color('border-bottom-color');
         }
       }
 
       > .current {
         border-bottom: $nav-hover-border-width solid $brand-primary;
+        @include theme-accent-color('border-bottom-color');
 
         &:focus,
         &:hover {
           border-bottom-color: $brand-primary;
+          @include theme-accent-color('border-bottom-color');
         }
       }
 
@@ -172,6 +180,7 @@
 
       &.current .navbar-touch-caret {
         border-bottom: $nav-hover-border-width solid $brand-primary;
+        @include theme-accent-color('border-bottom-color');
       }
     }
   }
