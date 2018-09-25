@@ -6,6 +6,10 @@
   }
 }
 
+.navbar-default {
+  @include theme-nav-color;
+}
+
 // Override BS default behavior
 .navbar-default .navbar-nav > .open > a,
 .navbar-default .navbar-nav > .open > a:hover {

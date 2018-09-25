@@ -32,12 +32,68 @@
   }
 }
 
+$theme-colors: (
+  red: #E51016,
+  dark-red: #AD161E,
+  pink: #B32A95,
+  purple: #6239C8,
+  blue: #1F6BFE,
+  dark-blue: #123581,
+  default-accent: #0F7EB2,
+  default-background: #001F2C,
+  teal: #00837A,
+  green: #298436,
+  dark-orange: #D34300,
+  dark-ochre: #947200,
+  black: #111,
+  dark-grey: #555,
+  light-grey: #EAEAEA,
+  white: #FFF,
+);
+
 /**
- * Global theme colors
+ * Theme header color
  */
-@mixin theme-color {
-  body.theme-tamarillo & {
-    color: $theme-tamarillo;
+@mixin theme-header-color {
+  @each $name, $color in $theme-colors {
+
+    &.theme-header-#{$name} {
+      background-color: $color;
+    }
+  }
+}
+
+/**
+ * Theme nav color
+ */
+@mixin theme-nav-color {
+  @each $name, $color in $theme-colors {
+    &.theme-nav-#{$name} {
+      background-color: $color;
+    }
+  }
+}
+
+/**
+ * Theme footer color
+ */
+@mixin theme-footer-color {
+  @each $name, $color in $theme-colors {
+    &.theme-footer-#{$name} {
+      background-color: $color;
+    }
+  }
+}
+
+/**
+ * Theme carousel color.
+ * The background colour of the carousel when there is no image set.
+ */
+@mixin theme-carousel-color {
+  @each $name, $color in $theme-colors {
+    &.theme-carousel-#{$name} {
+      background-color: $color;
+    }
   }
 }
 
@@ -47,54 +103,20 @@
  * e.g. @include theme-accent-color('color')
  */
 @mixin theme-accent-color($rule: 'background-color') {
-  body.theme-accent-tamarillo & {
-    #{$rule}: $theme-tamarillo;
-  }
-
-  body.theme-accent-blue-lagoon & {
-    #{$rule}: $theme-blue-lagoon;
+  @each $name, $color in $theme-colors {
+    body.theme-accent-#{$name} & {
+      #{$rule}: $color;
+    }
   }
 }
 
 /**
- * Theme header color
+ * Theme link colors
  */
-@mixin theme-header-color {
-  &.theme-tamarillo {
-    background-color: $theme-tamarillo;
-  }
-
-  &.theme-blue-lagoon {
-    background-color: $theme-blue-lagoon;
-  }
-}
-
-/**
- * Theme nav color
- */
-@mixin theme-nav-color {
-  &.theme-tamarillo {
-    background-color: $theme-tamarillo;
-  }
-
-  &.theme-blue-lagoon {
-    background-color: $theme-blue-lagoon;
-  }
-
-  &.theme-purple-heart {
-    background-color: $theme-purple-heart;
-  }
-}
-
-/**
- * Theme footer color
- */
-@mixin theme-footer-color {
-  &.theme-tamarillo {
-    background-color: $theme-tamarillo;
-  }
-
-  &.theme-blue-lagoon {
-    background-color: $theme-blue-lagoon;
+@mixin theme-link-color {
+  @each $name, $color in $theme-colors {
+    body.theme-link-#{$name} & {
+      background-color: $color;
+    }
   }
 }

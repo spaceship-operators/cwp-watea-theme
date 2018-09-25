@@ -167,6 +167,7 @@
 .carousel-mask {
   position: absolute;
   background: $jumbotron-bg;
+  @include theme-carousel-color;
   top: 0;
   left: 0;
   width: 100%;
