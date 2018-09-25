@@ -2,6 +2,9 @@
 body > header {
   background: $navbar-default-bg;
   color: $navbar-default-color;
+}
+
+.header {
   @include theme-header-color;
 }
 
@@ -96,7 +99,7 @@ body > header {
       background-color: $brand-primary;
       color: $btn-primary-color;
       border-color: $brand-primary;
-      @include theme-accent-color();
+      @include theme-accent-color('background-color');
       @include theme-accent-color('border-color');
     }
   }

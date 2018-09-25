@@ -19,9 +19,7 @@
     border-top: 1px solid rgba($theme-bg-lighter, .5);
     color: $carousel-text-color;
 
-    // If links are not on image use dark text shadow to break coloured underlines with decenders
     a {
-      @include textShadowToCropUnderline ($theme-bg);
       color: $carousel-text-color;
     }
 
@@ -29,7 +27,6 @@
     h2,
     h3,
     p {
-      text-shadow: $carousel-text-shadow;
       color: $carousel-text-color;
     }
 
@@ -37,29 +34,34 @@
     &.carousel-has-image {
       border-top-color: $theme-bg;
 
+      h1,
+      h2,
+      h3,
+      p,
       a {
-        text-shadow: $carousel-text-shadow;
+        // Add text shadow to all text if there is an image
+        @include textShadowToCropUnderline ($theme-bg);
       }
     }
 
     .btn {
       margin-left: 10px;
       margin-right: 10px;
+
+      @media (max-width: $screen-xs-max) {
+        margin-bottom: 10px;
+      }
     }
 
     .btn-link {
       position: relative;
-      background-image: linear-gradient(to bottom, lighten($brand-primary, 20%) 50%, rgba($brand-primary, 0) 50%);
-      background-repeat: repeat-x;
-      // Height of line, repeated dot for underline width (only half of size is seen)
-      background-size: 2px 2px;
-      // Position of line from top
-      background-position: 0 ($line-height-computed + $padding-large-vertical);
-      padding-left: 0;
-      padding-right: 0;
+      border: 1px solid lighten($brand-primary, 20%);
+      @include theme-accent-color('border-color', 'lighten', 20%);
+      padding: 12px 16px;
+      transition: all 0.3s ease;
 
       &:hover {
-        background-image: linear-gradient(to bottom, lighten($brand-primary, 40%) 50%, rgba($brand-primary, 0) 50%);
+        border-color: lighten($brand-primary, 40%);
       }
     }
   }
@@ -80,10 +82,12 @@
 
   // Custom carousel link style for theme
   a {
-    @include customUnderline(lighten($brand-primary, 20%));
+    border-bottom: 1px solid lighten($brand-primary, 20%);
+    @include theme-accent-color('border-bottom-color', 'darken', 10%);
+    text-decoration: none;
 
     &:hover {
-      @include customUnderline(lighten($brand-primary, 10%));
+      border-bottom-color: lighten($brand-primary, 10%);
       background-color: rgba($theme-bg, .2);
     }
   }
@@ -145,7 +149,6 @@
 // Play and pause button
 .carousel-play-controls {
   display: inline-block;
-  bottom: $padding-small-horizontal;
   bottom: 2px;
   position: relative;
 

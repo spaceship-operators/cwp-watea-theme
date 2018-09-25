@@ -2,6 +2,17 @@ a {
   @include theme-link-color;
 }
 
+.btn-primary {
+  @include theme-accent-color('background-color', 'darken', 10%);
+  @include theme-accent-color('border-color', 'darken', 10%);
+  transition: all 0.3s ease;
+}
+
+.btn-default {
+  @include theme-accent-color('border-color', 'darken', 10%);
+  transition: all 0.3s ease;
+}
+
 h1,
 .h1,
 h2,
