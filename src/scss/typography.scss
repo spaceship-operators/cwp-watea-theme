@@ -1,16 +1,29 @@
 a {
-  @include theme-link-color;
+  @include theme-link-color('color');
+}
+
+.btn {
+  transition: all 0.3s ease;
 }
 
 .btn-primary {
-  @include theme-accent-color('background-color', 'darken', 10%);
-  @include theme-accent-color('border-color', 'darken', 10%);
-  transition: all 0.3s ease;
+  @include theme-accent-color('background-color');
+  @include theme-accent-color('border-color');
+
+  &:hover,
+  &:focus {
+    @include theme-accent-color('background-color', 'darken', 10%);
+    @include theme-accent-color('border-color', 'darken', 10%);
+  }
 }
 
 .btn-default {
-  @include theme-accent-color('border-color', 'darken', 10%);
-  transition: all 0.3s ease;
+  @include theme-accent-color('border-color');
+
+  &:hover,
+  &:focus {
+    @include theme-accent-color('border-color', 'darken', 10%);
+  }
 }
 
 h1,

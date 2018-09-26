@@ -35,11 +35,12 @@
 /**
  * This is where all your colours are declared.
  *
- * The key should be equivalent to the name of the
- * class to apply the theme colour, which is in the
- * format of 'theme-{$element}-{$color}'.
+ * The key should match the $theme_colors configuration
+ * applied to SiteConfig, and is equivalent to
+ * the name of the class to apply the theme colour.
  *
- * Classes should be declared on the body so that they
+ * Classes are in the format of 'theme-{$element}-{$color}'
+ * and are declared on the body, so that they
  * can be accessed and applied to any element.
  */
 $theme-colors: (
@@ -63,33 +64,63 @@ $theme-colors: (
 
 /**
  * Theme header color
+ *
+ * @param {string} $property ['background-color'] - CSS property
+ * @param {string} $modifier ['none'] - Sass function to manipulate the color
+ * @param {number} $amount [0%] - Amount to manipulate by
  */
-@mixin theme-header-color {
+@mixin theme-header-color($property: 'background-color', $modifier: 'none', $amount: 0%) {
   @each $name, $color in $theme-colors {
-    .theme-header-#{$name} & {
-      background-color: $color;
+    body.theme-header-#{$name} & {
+      @if ($modifier == 'none') {
+        #{$property}: $color;
+      } @else if ($modifier == 'lighten') {
+        #{$property}: lighten($color, $amount);
+      } @else if ($modifier == 'darken') {
+        #{$property}: darken($color, $amount);
+      }
     }
   }
 }
 
 /**
  * Theme nav color
+ *
+ * @param {string} $property ['background-color'] - CSS property
+ * @param {string} $modifier ['none'] - Sass function to manipulate the color
+ * @param {number} $amount [0%] - Amount to manipulate by
  */
-@mixin theme-nav-color {
+@mixin theme-nav-color($property: 'background-color', $modifier: 'none', $amount: 0%) {
   @each $name, $color in $theme-colors {
-    .theme-nav-#{$name} & {
-      background-color: $color;
+    body.theme-nav-#{$name} & {
+      @if ($modifier == 'none') {
+        #{$property}: $color;
+      } @else if ($modifier == 'lighten') {
+        #{$property}: lighten($color, $amount);
+      } @else if ($modifier == 'darken') {
+        #{$property}: darken($color, $amount);
+      }
     }
   }
 }
 
 /**
  * Theme footer color
+ *
+ * @param {string} $property ['background-color'] - CSS property
+ * @param {string} $modifier ['none'] - Sass function to manipulate the color
+ * @param {number} $amount [0%] - Amount to manipulate by
  */
-@mixin theme-footer-color {
+@mixin theme-footer-color($property: 'background-color', $modifier: 'none', $amount: 0%) {
   @each $name, $color in $theme-colors {
-    .theme-footer-#{$name} & {
-      background-color: $color;
+    body.theme-footer-#{$name} & {
+      @if ($modifier == 'none') {
+        #{$property}: $color;
+      } @else if ($modifier == 'lighten') {
+        #{$property}: lighten($color, $amount);
+      } @else if ($modifier == 'darken') {
+        #{$property}: darken($color, $amount);
+      }
     }
   }
 }
@@ -97,17 +128,27 @@ $theme-colors: (
 /**
  * Theme carousel color.
  * The background colour of the carousel when there is no image set.
+ *
+ * @param {string} $property ['background-color'] - CSS property
+ * @param {string} $modifier ['none'] - Sass function to manipulate the color
+ * @param {number} $amount [0%] - Amount to manipulate by
  */
-@mixin theme-carousel-color {
+@mixin theme-carousel-color($property: 'background-color', $modifier: 'none', $amount: 0%) {
   @each $name, $color in $theme-colors {
-    .theme-carousel-#{$name} & {
-      background-color: $color;
+    body.theme-carousel-#{$name} & {
+      @if ($modifier == 'none') {
+        #{$property}: $color;
+      } @else if ($modifier == 'lighten') {
+        #{$property}: lighten($color, $amount);
+      } @else if ($modifier == 'darken') {
+        #{$property}: darken($color, $amount);
+      }
     }
   }
 }
 
 /**
- * Theme accent color which defaults to background color.
+ * Theme accent color.
  * Affects colour of buttons, current navigation items etc.
  *
  * You can specify a different CSS property to use when
@@ -119,21 +160,20 @@ $theme-colors: (
  *
  * This defaults to none so as not to bloat the CSS when there
  * is no hover state for an element.
+ *
+ * @param {string} $property ['background-color'] - CSS property
+ * @param {string} $modifier ['none'] - Sass function to manipulate the color
+ * @param {number} $amount [0%] - Amount to manipulate by
  */
-@mixin theme-accent-color($property: 'background-color', $type: 'none', $amount: 0%) {
+@mixin theme-accent-color($property: 'background-color', $modifier: 'none', $amount: 0%) {
   @each $name, $color in $theme-colors {
     body.theme-accent-#{$name} & {
-      #{$property}: $color;
-
-      @if ($type != 'none') {
-        &:hover,
-        &:focus {
-          @if ($type == 'lighten') {
-            #{$property}: lighten($color, $amount);
-          } @else if ($type == 'darken') {
-            #{$property}: darken($color, $amount);
-          }
-        }
+      @if ($modifier == 'none') {
+        #{$property}: $color;
+      } @else if ($modifier == 'lighten') {
+        #{$property}: lighten($color, $amount);
+      } @else if ($modifier == 'darken') {
+        #{$property}: darken($color, $amount);
       }
     }
   }
@@ -141,11 +181,21 @@ $theme-colors: (
 
 /**
  * Theme link colors
+ *
+ * @param {string} $property ['background-color'] - CSS property
+ * @param {string} $modifier ['none'] - Sass function to manipulate the color
+ * @param {number} $amount [0%] - Amount to manipulate by
  */
-@mixin theme-link-color {
+@mixin theme-link-color($property: 'color', $modifier: 'none', $amount: 0%) {
   @each $name, $color in $theme-colors {
-    .theme-link-#{$name} & {
-      color: $color;
+    body.theme-link-#{$name} & {
+      @if ($modifier == 'none') {
+        #{$property}: $color;
+      } @else if ($modifier == 'lighten') {
+        #{$property}: lighten($color, $amount);
+      } @else if ($modifier == 'darken') {
+        #{$property}: darken($color, $amount);
+      }
     }
   }
 }
