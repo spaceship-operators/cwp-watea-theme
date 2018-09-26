@@ -1,5 +1,5 @@
 a {
-  @include theme-link-color('color');
+  @include theme-color('link', 'color');
 }
 
 .btn {
@@ -7,22 +7,22 @@ a {
 }
 
 .btn-primary {
-  @include theme-accent-color('background-color');
-  @include theme-accent-color('border-color');
+  @include theme-color('accent', 'background-color');
+  @include theme-color('accent', 'border-color');
 
   &:hover,
   &:focus {
-    @include theme-accent-color('background-color', 'darken', 10%);
-    @include theme-accent-color('border-color', 'darken', 10%);
+    @include theme-color('accent', 'background-color', 'darken', 10%);
+    @include theme-color('accent', 'border-color', 'darken', 10%);
   }
 }
 
 .btn-default {
-  @include theme-accent-color('border-color');
+  @include theme-color('accent', 'border-color');
 
   &:hover,
   &:focus {
-    @include theme-accent-color('border-color', 'darken', 10%);
+    @include theme-color('accent', 'border-color', 'darken', 10%);
   }
 }
 
@@ -61,7 +61,7 @@ blockquote {
   padding-top: 0;
   padding-bottom: 0;
   border-left: 3px solid $brand-primary;
-  @include theme-accent-color('border-color');
+  @include theme-color('accent', 'border-color');
 
   p,
   ul,

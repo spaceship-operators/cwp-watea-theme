@@ -5,7 +5,7 @@ body > header {
 }
 
 .header {
-  @include theme-header-color('background-color');
+  @include theme-color('header', 'background-color');
 }
 
 // Language selector
@@ -41,7 +41,7 @@ body > header {
 
   .dropdown-menu {
     border-color: $brand-primary;
-    @include theme-accent-color('border-color');
+    @include theme-color('accent', 'border-color');
     margin-top: 0;
 
     // Show focus on all links (override BS)
@@ -99,8 +99,8 @@ body > header {
       background-color: $brand-primary;
       color: $btn-primary-color;
       border-color: $brand-primary;
-      @include theme-accent-color('background-color');
-      @include theme-accent-color('border-color');
+      @include theme-color('accent', 'background-color');
+      @include theme-color('accent', 'border-color');
     }
   }
 }

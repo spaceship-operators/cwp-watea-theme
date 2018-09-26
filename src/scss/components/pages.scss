@@ -14,8 +14,8 @@
   }
 
   .pagination .active a {
-    @include theme-accent-color('background-color');
-    @include theme-accent-color('border-color');
+    @include theme-color('accent', 'background-color');
+    @include theme-color('accent', 'border-color');
   }
 }
 

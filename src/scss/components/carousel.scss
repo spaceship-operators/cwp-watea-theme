@@ -56,13 +56,13 @@
     .btn-link {
       position: relative;
       border: 1px solid lighten($brand-primary, 20%);
-      @include theme-accent-color('border-color');
+      @include theme-color('accent','border-color');
       padding: 12px 16px;
       transition: all 0.3s ease;
 
       &:hover {
         border-color: lighten($brand-primary, 40%);
-        @include theme-accent-color('border-color', 'lighten', 20%);
+        @include theme-color('accent', 'border-color', 'lighten', 20%);
       }
     }
   }
@@ -84,12 +84,12 @@
   // Custom carousel link style for theme
   a {
     border-bottom: 1px solid lighten($brand-primary, 20%);
-    @include theme-accent-color('border-bottom-color');
+    @include theme-color('accent', 'border-bottom-color');
     text-decoration: none;
 
     &:hover {
       border-bottom-color: lighten($brand-primary, 10%);
-      @include theme-accent-color('border-bottom-color', 'darken', 10%);
+      @include theme-color('accent', 'border-bottom-color', 'darken', 10%);
       background-color: rgba($theme-bg, .2);
     }
   }
@@ -172,7 +172,7 @@
 .carousel-mask {
   position: absolute;
   background: $jumbotron-bg;
-  @include theme-carousel-color('background-color');
+  @include theme-color('carousel', 'background-color');
   top: 0;
   left: 0;
   width: 100%;
