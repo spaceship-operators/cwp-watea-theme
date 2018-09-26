@@ -1,3 +1,5 @@
+@import './theme-colors';
+
 // Styles for header, search and language selector
 @mixin form-controls-style() {
   background: $theme-bg-lighter;

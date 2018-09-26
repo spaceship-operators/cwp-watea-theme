@@ -1,3 +1,31 @@
+a {
+  @include theme-color('link', 'color');
+}
+
+.btn {
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  @include theme-color('accent', 'background-color');
+  @include theme-color('accent', 'border-color');
+
+  &:hover,
+  &:focus {
+    @include theme-color('accent', 'background-color', 'darken', 10%);
+    @include theme-color('accent', 'border-color', 'darken', 10%);
+  }
+}
+
+.btn-default {
+  @include theme-color('accent', 'border-color');
+
+  &:hover,
+  &:focus {
+    @include theme-color('accent', 'border-color', 'darken', 10%);
+  }
+}
+
 h1,
 .h1,
 h2,
@@ -33,6 +61,7 @@ blockquote {
   padding-top: 0;
   padding-bottom: 0;
   border-left: 3px solid $brand-primary;
+  @include theme-color('accent', 'border-color');
 
   p,
   ul,

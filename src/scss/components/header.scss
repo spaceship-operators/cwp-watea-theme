@@ -4,6 +4,10 @@ body > header {
   color: $navbar-default-color;
 }
 
+.header {
+  @include theme-color('header', 'background-color');
+}
+
 // Language selector
 .language-selector {
   text-transform: capitalize;
@@ -37,6 +41,7 @@ body > header {
 
   .dropdown-menu {
     border-color: $brand-primary;
+    @include theme-color('accent', 'border-color');
     margin-top: 0;
 
     // Show focus on all links (override BS)
@@ -94,6 +99,8 @@ body > header {
       background-color: $brand-primary;
       color: $btn-primary-color;
       border-color: $brand-primary;
+      @include theme-color('accent', 'background-color');
+      @include theme-color('accent', 'border-color');
     }
   }
 }

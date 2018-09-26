@@ -12,6 +12,11 @@
   .fa {
     text-decoration: none;
   }
+
+  .pagination .active a {
+    @include theme-color('accent', 'background-color');
+    @include theme-color('accent', 'border-color');
+  }
 }
 
 // General pages
