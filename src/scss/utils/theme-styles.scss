@@ -1,3 +1,7 @@
+// Font selected from google fonts
+@import url("//fonts.googleapis.com/css?family=Fira+Sans:200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800ii&subset=latin-ext");
+@import url("//fonts.googleapis.com/css?family=Merriweather:300,300i,400,400i,700,700i,800,800ii&subset=latin-ext");
+
 /**
  * This is where all your colours are declared.
  *
@@ -26,6 +30,21 @@ $theme-colors: (
   dark-grey: $gray,
   light-grey: #EAEAEA,
   white: #FFF,
+) !default;
+
+$theme-fonts: (
+  nunito: (
+    'Nunito Sans',
+    'sans-serif'
+  ),
+  fira-sans: (
+    'Fira Sans',
+    'sans-serif'
+  ),
+  merriweather: (
+    'Merriweather',
+    'serif'
+  )
 ) !default;
 
 /**
@@ -64,6 +83,18 @@ $theme-colors: (
         #{$property}: lighten($color, $amount);
       } @else if ($modifier == 'darken') {
         #{$property}: darken($color, $amount);
+      }
+    }
+  }
+}
+
+@mixin theme-font() {
+  @each $name, $font in $theme-fonts {
+    &.theme-font-#{$name} {
+      @if (nth($font, 2) == 'serif') {
+        font-family: nth($font, 1), Georgia, "Times New Roman", Times, serif;
+      } @else {
+        font-family: nth($font, 1), "Helvetica Neue", Helvetica, Arial, sans-serif;
       }
     }
   }
