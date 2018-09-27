@@ -10,22 +10,24 @@ a {
   transition: all 0.3s ease;
 }
 
-.btn-primary {
-  @include theme-color('accent', 'background-color');
+.btn-default {
   @include theme-color('accent', 'border-color');
+  @include theme-color('accent', 'color');
 
   &:hover,
   &:focus {
-    @include theme-color('accent', 'background-color', 'darken', 10%);
     @include theme-color('accent', 'border-color', 'darken', 10%);
   }
 }
 
-.btn-default {
+.btn-primary {
+  @include theme-color('accent', 'background-color');
   @include theme-color('accent', 'border-color');
+  @include theme-contrast-color('accent');
 
   &:hover,
   &:focus {
+    @include theme-color('accent', 'background-color', 'darken', 10%);
     @include theme-color('accent', 'border-color', 'darken', 10%);
   }
 }
