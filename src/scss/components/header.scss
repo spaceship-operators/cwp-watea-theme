@@ -127,6 +127,7 @@ body > header {
 .skip-links a {
   color: $navbar-default-link-color;
   background: $navbar-default-bg;
+  @include theme-color('header', 'background-color');
 }
 
 // Mobile only
