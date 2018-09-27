@@ -13,7 +13,7 @@
  * and are declared on the body, so that they
  * can be accessed and applied to any element.
  */
-$theme-colors: (
+$default-theme-colors: (
   'red': #E51016,
   'dark-red': #AD161E,
   'pink': #B32A95,
@@ -31,6 +31,15 @@ $theme-colors: (
   'light-grey': #EAEAEA,
   'white': #FFF,
 ) !default;
+
+/**
+ * Empty map for theme colors, override this in your project to add
+ * custom colors or edit any default colors
+ */
+$custom-theme-colors: () !default;
+
+// Merge $custom-theme-colors into $default-theme-colors
+$theme-colors: map-merge($default-theme-colors, $custom-theme-colors);
 
 /**
  * Fonts work similarly to theme colors, with the key
