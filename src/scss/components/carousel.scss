@@ -2,6 +2,7 @@
   // The navbar has a 1px border on the bottom, so adding it to the margin
   margin-top: -($line-height-computed + 1);
   margin-bottom: $jumbotron-padding * 2;
+  border-bottom: 1px solid $carousel-border-color;
 
   .container {
     position: relative;
@@ -10,7 +11,7 @@
   // Slides
   .item {
     padding-top: $jumbotron-padding * 2;
-    padding-bottom: $jumbotron-padding * 3;
+    padding-bottom: $jumbotron-padding * 3.67;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -18,9 +19,11 @@
     min-height: 360px;
     border-top: 1px solid rgba($theme-bg-lighter, .5);
     color: $carousel-text-color;
+    @include theme-contrast-color('carousel');
 
     a {
       color: $carousel-text-color;
+      @include theme-contrast-color('carousel');
     }
 
     h1,
@@ -28,10 +31,11 @@
     h3,
     p {
       color: $carousel-text-color;
+      @include theme-contrast-color('carousel');
     }
 
     // Remove lighter border-top if there is an image
-    &.carousel-has-image {
+    &.carousel-has-image[class] {
       border-top-color: $theme-bg;
 
       h1,
@@ -39,14 +43,29 @@
       h3,
       p,
       a {
+        color: $carousel-text-color;
         // Add text shadow to all text if there is an image
-        @include textShadowToCropUnderline ($theme-bg);
+        text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+      }
+
+      .btn {
+        text-shadow: none;
+      }
+
+      .btn-link {
+        color: $carousel-text-color;
+        border-color: #FFF;
+
+        &:hover {
+          border-color: darken(#FFF, 20%);
+        }
       }
     }
 
     .btn {
       margin-left: 10px;
       margin-right: 10px;
+      @include theme-contrast-color('accent');
 
       @media (max-width: $screen-xs-max) {
         margin-bottom: 10px;
@@ -57,6 +76,7 @@
       position: relative;
       border: 1px solid lighten($brand-primary, 20%);
       @include theme-color('accent','border-color');
+      @include theme-contrast-color('carousel');
       padding: 12px 16px;
       transition: all 0.3s ease;
 
@@ -87,10 +107,12 @@
     @include theme-color('accent', 'border-bottom-color');
     text-decoration: none;
 
+    div.carousel-has-image & {
+      border-color: white;
+    }
+
     &:hover {
-      border-bottom-color: lighten($brand-primary, 10%);
-      @include theme-color('accent', 'border-bottom-color', 'darken', 10%);
-      background-color: rgba($theme-bg, .2);
+      border-bottom: none;
     }
   }
 }
@@ -98,7 +120,7 @@
 // Controls wrapper
 .carousel-controls-wrapper {
   position: absolute;
-  bottom: 10px;
+  bottom: 40px;
   // Center
   left: 50%;
   z-index: 2;
@@ -107,6 +129,11 @@
   // Back half of width to center
   margin-left: -30%;
   text-align: center;
+}
+
+.carousel-controls-inner-wrapper {
+  display: inline-block;
+  background: rgba(0, 0, 0, .2);
 }
 
 // Controls navigate left or right
@@ -153,6 +180,7 @@
   display: inline-block;
   bottom: 2px;
   position: relative;
+  padding-right: 6px;
 
   .btn-link {
     color: $carousel-text-color;

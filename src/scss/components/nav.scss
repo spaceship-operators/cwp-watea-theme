@@ -12,12 +12,17 @@
 
 .navbar-default {
   @include theme-color('nav', 'background-color');
+
+  .btn-link {
+    @include theme-contrast-color('nav');
+  }
 }
 
 // Override BS default behavior
 .navbar-default .navbar-nav > .open > a,
 .navbar-default .navbar-nav > .open > a:hover {
   background-color: transparent;
+  @include theme-contrast-color('nav');
 }
 
 .main-nav {
@@ -25,14 +30,20 @@
     z-index: $zindex-navbar;
   }
 
+  .navbar-nav > li > a {
+    @include theme-contrast-color('nav');
+  }
+
   .nav-item.current > a {
     background-color: $brand-primary;
     @include theme-color('accent', 'background-color');
+    @include theme-contrast-color('accent');
 
     &:focus,
     &:hover {
       background-color: $brand-primary;
       @include theme-color('accent', 'background-color');
+      @include theme-contrast-color('accent');
     }
   }
 
@@ -59,6 +70,7 @@
       &:focus .navbar-touch-caret {
         background: $brand-primary;
         @include theme-color('accent', 'background-color');
+        @include theme-contrast-color('accent');
 
         &:hover,
         &:focus {
@@ -125,9 +137,17 @@
       }
     }
 
-    .open .dropdown-menu > li > a {
-      padding-top: 10px;
-      padding-bottom: 10px;
+    .open .dropdown-menu {
+      > li > a {
+        padding-top: 10px;
+        padding-bottom: 10px;
+      }
+
+      .active > a,
+      .active > a:hover,
+      .active > a:hover {
+        @include theme-color('accent', 'background-color');
+      }
     }
   }
 

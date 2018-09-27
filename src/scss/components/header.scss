@@ -8,6 +8,14 @@ body > header {
   @include theme-color('header', 'background-color');
 }
 
+.site-header {
+  @include theme-contrast-color('header');
+
+  a {
+    @include theme-contrast-color('header');
+  }
+}
+
 // Language selector
 .language-selector {
   text-transform: capitalize;

@@ -14,22 +14,22 @@
  * can be accessed and applied to any element.
  */
 $theme-colors: (
-  red: #E51016,
-  dark-red: #AD161E,
-  pink: #B32A95,
-  purple: #6239C8,
-  blue: #1F6BFE,
-  dark-blue: #123581,
-  default-accent: $brand-primary,
-  default-background: $theme-bg,
-  teal: #00837A,
-  green: #298436,
-  dark-orange: #D34300,
-  dark-ochre: #947200,
-  black: #111,
-  dark-grey: $gray,
-  light-grey: #EAEAEA,
-  white: #FFF,
+  'red': #E51016,
+  'dark-red': #AD161E,
+  'pink': #B32A95,
+  'purple': #6239C8,
+  'blue': #1F6BFE,
+  'dark-blue': #123581,
+  'default-accent': $brand-primary,
+  'default-background': $theme-bg,
+  'teal': #00837A,
+  'green': #298436,
+  'dark-orange': #D34300,
+  'dark-ochre': #947200,
+  'black': #111,
+  'dark-grey': $gray,
+  'light-grey': #EAEAEA,
+  'white': #FFF,
 ) !default;
 
 /**
@@ -112,6 +112,25 @@ $theme-fonts: (
         font-family: nth($font, 1), Georgia, "Times New Roman", Times, serif;
       } @else {
         font-family: nth($font, 1), "Helvetica Neue", Helvetica, Arial, sans-serif;
+      }
+    }
+  }
+}
+
+/**
+ * Mixin for providing a color which contrasts against a given area's color.
+ *
+ * @param {string} $area - Area or element that this theme colour applies to
+ * @param {string} $property ['color'] - You can specify a different
+ * CSS property to use when calling the mixin.
+ */
+@mixin theme-contrast-color($area, $property: 'color') {
+  @each $name, $color in $theme-colors {
+    body.theme-#{$area}-#{$name} & {
+      @if ($name == 'white' or $name == 'light-grey') {
+        #{$property}: $text-color;
+      } @else {
+        #{$property}: #FFF;
       }
     }
   }
