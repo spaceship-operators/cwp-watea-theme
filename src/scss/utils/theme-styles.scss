@@ -32,6 +32,15 @@ $theme-colors: (
   white: #FFF,
 ) !default;
 
+/**
+ * Fonts work similarly to theme colors, with the key
+ * matching the $theme_fonts configuration in SiteConfig
+ * and the class declared on the <body> element.
+ *
+ * Each font map includes the key, exact font name, and
+ * whether the font is serif or sans-serif so that a
+ * relevant fallback font stack can be applied.
+ */
 $theme-fonts: (
   nunito: (
     'Nunito Sans',
@@ -72,7 +81,7 @@ $theme-fonts: (
  * @param {string} $modifier ['none'] - Sass function to manipulate the color.
  * @param {number} $amount [0%] - Amount to manipulate by
  *
- * @example: @include theme-accent-color('background-color', 'lighten', 20%).
+ * @example: @include theme-color('accent', background-color', 'lighten', 20%)
  */
 @mixin theme-color($area, $property: 'background-color', $modifier: 'none', $amount: 0%) {
   @each $name, $color in $theme-colors {
@@ -88,6 +97,14 @@ $theme-fonts: (
   }
 }
 
+/**
+ * Theme font mixin to be applied to the whole site.
+ *
+ * Applies a different fallback font stack depending on if the font is
+ * serif, or sans-serif.
+ *
+ * @example: @include theme-font()
+ */
 @mixin theme-font() {
   @each $name, $font in $theme-fonts {
     &.theme-font-#{$name} {
