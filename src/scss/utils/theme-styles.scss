@@ -1,3 +1,7 @@
+// Font selected from google fonts
+@import url("//fonts.googleapis.com/css?family=Fira+Sans:200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800ii&subset=latin-ext");
+@import url("//fonts.googleapis.com/css?family=Merriweather:300,300i,400,400i,700,700i,800,800ii&subset=latin-ext");
+
 /**
  * This is where all your colours are declared.
  *
@@ -29,6 +33,30 @@ $theme-colors: (
 ) !default;
 
 /**
+ * Fonts work similarly to theme colors, with the key
+ * matching the $theme_fonts configuration in SiteConfig
+ * and the class declared on the <body> element.
+ *
+ * Each font map includes the key, exact font name, and
+ * whether the font is serif or sans-serif so that a
+ * relevant fallback font stack can be applied.
+ */
+$theme-fonts: (
+  nunito: (
+    'Nunito Sans',
+    'sans-serif'
+  ),
+  fira-sans: (
+    'Fira Sans',
+    'sans-serif'
+  ),
+  merriweather: (
+    'Merriweather',
+    'serif'
+  )
+) !default;
+
+/**
  * Theme color mixin for all areas on the site.
  *
  * Current areas used:
@@ -53,7 +81,7 @@ $theme-colors: (
  * @param {string} $modifier ['none'] - Sass function to manipulate the color.
  * @param {number} $amount [0%] - Amount to manipulate by
  *
- * @example: @include theme-accent-color('background-color', 'lighten', 20%).
+ * @example: @include theme-color('accent', background-color', 'lighten', 20%)
  */
 @mixin theme-color($area, $property: 'background-color', $modifier: 'none', $amount: 0%) {
   @each $name, $color in $theme-colors {
@@ -64,6 +92,26 @@ $theme-colors: (
         #{$property}: lighten($color, $amount);
       } @else if ($modifier == 'darken') {
         #{$property}: darken($color, $amount);
+      }
+    }
+  }
+}
+
+/**
+ * Theme font mixin to be applied to the whole site.
+ *
+ * Applies a different fallback font stack depending on if the font is
+ * serif, or sans-serif.
+ *
+ * @example: @include theme-font()
+ */
+@mixin theme-font() {
+  @each $name, $font in $theme-fonts {
+    &.theme-font-#{$name} {
+      @if (nth($font, 2) == 'serif') {
+        font-family: nth($font, 1), Georgia, "Times New Roman", Times, serif;
+      } @else {
+        font-family: nth($font, 1), "Helvetica Neue", Helvetica, Arial, sans-serif;
       }
     }
   }

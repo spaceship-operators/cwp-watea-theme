@@ -1,3 +1,7 @@
+body {
+  @include theme-font;
+}
+
 a {
   @include theme-color('link', 'color');
 }
@@ -42,44 +46,145 @@ p,
 .lead,
 ul,
 ol {
-  margin-bottom: $line-height-computed * .75;
-}
-
-h5,
-.h5,
-h6,
-.h6 {
-  line-height: $line-height-base;
-}
-
-.lead {
-  font-weight: 200;
-  font-size: floor(($font-size-base * 1.5));
-}
-
-blockquote {
-  padding-top: 0;
-  padding-bottom: 0;
-  border-left: 3px solid $brand-primary;
-  @include theme-color('accent', 'border-color');
-
-  p,
-  ul,
-  ol {
-    font-size: $font-size-base * 1.25;
-    font-weight: 200;
-  }
-
-  .blockquote-footer:before {
-    content: "\2014 "; // em dash, space
-  }
+  margin-bottom: $line-height-computed * .5;
 }
 
 h1,
 .h1,
 h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
+  margin-top: $line-height-computed;
+}
+
+h1,
+.h1 {
+  font-size: 42px;
+  line-height: 1.2;
+
+  @media (max-width: $screen-xs-max) {
+    font-size: 36px;
+  }
+
+  .theme-font-fira-sans & {
+    font-weight: 500;
+  }
+
+  .theme-font-merriweather & {
+    font-size: 40px;
+
+    @media (max-width: $screen-xs-max) {
+      font-size: 36px;
+    }
+  }
+}
+
+h2,
 .h2 {
-  letter-spacing: -.5px;
+  font-size: 32px;
+  line-height: 1.2;
+
+  @media (max-width: $screen-xs-max) {
+    font-size: 28px;
+  }
+
+  .theme-font-fira-sans & {
+    font-weight: 600;
+  }
+}
+
+h3,
+.h3 {
+  font-size: 24px;
+
+  .theme-font-fira-sans & {
+    font-weight: 600;
+  }
+}
+
+h4,
+.h4 {
+  .theme-font-fira-sans & {
+    font-weight: 600;
+  }
+}
+
+h5,
+.h5 {
+  font-size: 18px;
+
+  .theme-font-fira-sans & {
+    font-weight: 600;
+  }
+}
+
+h6,
+.h6 {
+  font-size: 16px;
+
+  .theme-font-fira-sans & {
+    font-weight: 600;
+  }
+}
+
+p {
+  .theme-font-fira-sans & {
+    font-weight: 300;
+  }
+
+  .theme-font-merriweather & {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+}
+
+.lead {
+  font-weight: 200;
+  font-size: 22px;
+  margin-bottom: 33px;
+
+  @media (max-width: $screen-xs-max) {
+    font-size: 20px;
+  }
+
+  .theme-font-merriweather & {
+    font-size: 20px;
+    line-height: 1.5;
+  }
+}
+
+blockquote {
+  padding: 0 20px;
+  border-left: 5px solid $brand-primary;
+  @include theme-color('accent', 'border-color');
+
+  p,
+  ul,
+  ol {
+    font-size: 20px;
+    font-weight: 200;
+    line-height: 1.4;
+
+    .theme-font-fira-sans & {
+      font-weight: 200;
+    }
+
+    .theme-font-merriweather & {
+      font-size: 18px;
+      line-height: 1.5;
+    }
+  }
+
+  .blockquote-footer:before {
+    content: "\2014 "; // em dash, space
+  }
 }
 
 .captionImage {
