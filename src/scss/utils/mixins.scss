@@ -2,9 +2,10 @@
 
 // Styles for header, search and language selector
 @mixin form-controls-style() {
-  background: $theme-bg-lighter;
-  border-color: $theme-bg-lighter;
-  color: $navbar-default-link-hover-color;
+  background: transparent;
+  border: none;
+  color: #FFF;
+  @include theme-contrast-color('header');
 }
 
 @mixin customUnderline($underline-color) {
