@@ -145,7 +145,7 @@
 
       .active > a,
       .active > a:hover,
-      .active > a:hover {
+      .active > a:focus {
         @include theme-color('accent', 'background-color');
       }
     }

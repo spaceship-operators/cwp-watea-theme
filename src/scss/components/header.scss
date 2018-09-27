@@ -71,10 +71,6 @@ body > header {
 
 // Main site header search
 .site-header-search {
-
-  .input-group {
-  }
-
   .form-control,
   button[type="submit"] {
     height: $navbar-height;
@@ -85,7 +81,7 @@ body > header {
     // Special case for white/light-grey theme
     body.theme-header-white &,
     body.theme-header-light-grey & {
-      background: #FFF;
+      background: $input-bg;
       border-color: rgba($gray, .4);
     }
 

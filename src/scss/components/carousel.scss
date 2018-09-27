@@ -54,10 +54,10 @@
 
       .btn-link {
         color: $carousel-text-color;
-        border-color: #FFF;
+        border-color: $btn-primary-color;
 
         &:hover {
-          border-color: darken(#FFF, 20%);
+          border-color: darken($btn-primary-color, 20%);
         }
       }
     }
@@ -108,7 +108,7 @@
     text-decoration: none;
 
     div.carousel-has-image & {
-      border-color: white;
+      border-color: $navbar-default-color;
     }
 
     &:hover {
