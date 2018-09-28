@@ -91,6 +91,7 @@ h1,
 h2,
 .h2 {
   font-size: 32px;
+  font-weight: 600;
   line-height: 1.2;
 
   @media (max-width: $screen-xs-max) {
@@ -98,7 +99,11 @@ h2,
   }
 
   .theme-font-fira-sans & {
-    font-weight: 600;
+    font-weight: 400;
+  }
+
+  .theme-font-merriweather & {
+    font-weight: 400;
   }
 }
 
@@ -107,7 +112,7 @@ h3,
   font-size: 24px;
 
   .theme-font-fira-sans & {
-    font-weight: 600;
+    font-weight: 500;
   }
 }
 
@@ -148,7 +153,7 @@ p {
 }
 
 .lead {
-  font-weight: 200;
+  font-weight: 300;
   font-size: 22px;
   margin-bottom: 33px;
 
@@ -171,12 +176,8 @@ blockquote {
   ul,
   ol {
     font-size: 20px;
-    font-weight: 200;
+    font-weight: 300;
     line-height: 1.4;
-
-    .theme-font-fira-sans & {
-      font-weight: 200;
-    }
 
     .theme-font-merriweather & {
       font-size: 18px;
