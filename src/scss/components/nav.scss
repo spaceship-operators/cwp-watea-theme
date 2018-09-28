@@ -5,7 +5,7 @@
     margin-right: 0;
 
     .icon-bar {
-      @include theme-color('accent', 'background-color');
+      @include theme-contrast-color('header', 'background-color');
     }
   }
 }
@@ -28,6 +28,12 @@
 .main-nav {
   .navbar {
     z-index: $zindex-navbar;
+
+    // Special case for white/light-grey theme
+    body.theme-nav-white &,
+    body.theme-nav-light-grey & {
+      border-bottom: 1px solid $navbar-inverse-border-color;
+    }
   }
 
   .navbar-nav > li > a {
@@ -94,6 +100,15 @@
 
     .navbar-form {
       @include theme-color('header', 'background-color');
+      margin-top: 0;
+      border-top: 1px solid $navbar-border-color;
+      border-color: $navbar-border-color;
+
+      // Special case for white/light-grey theme
+      body.theme-header-white &,
+      body.theme-header-light-grey & {
+        border-color: $navbar-inverse-border-color;
+      }
     }
 
     // Add hover border to left side
@@ -141,6 +156,11 @@
       > li > a {
         padding-top: 10px;
         padding-bottom: 10px;
+        @include theme-contrast-color('nav');
+
+        &:hover {
+          @include theme-contrast-color('nav');
+        }
       }
 
       .active > a,
@@ -231,6 +251,18 @@
         border-bottom: $nav-hover-border-width solid $brand-primary;
         @include theme-color('accent', 'border-bottom-color');
       }
+    }
+  }
+}
+
+.nav-pills {
+  // Active state
+  > li.active > a {
+    &,
+    &:hover,
+    &:focus {
+      color: $nav-pills-active-link-hover-color;
+      @include theme-color('accent', 'background-color');
     }
   }
 }

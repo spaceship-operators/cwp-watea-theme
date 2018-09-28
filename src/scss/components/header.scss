@@ -33,8 +33,7 @@ body > header {
   }
 
   .dropdown-menu {
-    border-color: $brand-primary;
-    @include theme-color('accent', 'border-color');
+    border-color: rgba($gray-base, .4);
     margin-top: 0;
 
     // Show focus on all links (override BS)
@@ -75,8 +74,7 @@ body > header {
   button[type="submit"] {
     height: $navbar-height;
     @include form-controls-style();
-    border: 1px solid $brand-primary;
-    @include theme-color('accent', 'border-color');
+    border: 1px solid rgba($input-bg, .4);
 
     // Special case for white/light-grey theme
     body.theme-header-white &,
@@ -138,7 +136,7 @@ body > header {
 
     .site-header-brand {
       margin-right: $line-height-computed * 5.5;
-      font-size: 1.8em;
+      font-size: 1em;
     }
 
     .navbar-toggle,
