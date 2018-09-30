@@ -1,11 +1,11 @@
-@import './theme-styles';
+@import "./theme-styles";
 
 // Styles for header, search and language selector
 @mixin form-controls-style() {
   background: transparent;
-  border: none;
+  border: 0;
   color: $btn-primary-color;
-  @include theme-contrast-color('header');
+  @include theme-contrast-color("header", "color");
 }
 
 @mixin customUnderline($underline-color) {

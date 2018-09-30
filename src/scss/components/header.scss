@@ -5,14 +5,14 @@ body > header {
 }
 
 .header {
-  @include theme-color('header', 'background-color');
+  @include theme-color("header", "background-color");
 }
 
 .site-header {
-  @include theme-contrast-color('header', 'color');
+  @include theme-contrast-color("header", "color");
 
   a {
-    @include theme-contrast-color('header', 'color');
+    @include theme-contrast-color("header", "color");
   }
 }
 
@@ -50,22 +50,22 @@ body > header {
 // These must be separate to work
 .site-header-search .form-control::-webkit-input-placeholder {
   color: $navbar-default-link-active-color;
-  @include theme-contrast-color('header', 'color');
+  @include theme-contrast-color("header", "color");
 }
 
 .site-header-search .form-control:-moz-placeholder {
   color: $navbar-default-link-active-color;
-  @include theme-contrast-color('header', 'color');
+  @include theme-contrast-color("header", "color");
 }
 
 .site-header-search .form-control::-moz-placeholder {
   color: $navbar-default-link-active-color;
-  @include theme-contrast-color('header', 'color');
+  @include theme-contrast-color("header", "color");
 }
 
 .site-header-search .form-control:-ms-input-placeholder {
   color: $navbar-default-link-active-color;
-  @include theme-contrast-color('header', 'color');
+  @include theme-contrast-color("header", "color");
 }
 
 // Main site header search
@@ -92,13 +92,13 @@ body > header {
     box-shadow: none;
     padding: $padding-large-vertical $padding-large-horizontal;
     height: ($line-height-computed + ($padding-large-vertical * 2) + 2);
-    border-right: none;
+    border-right: 0;
   }
 
   // Search button hover
   .btn[type="submit"] {
     padding: $padding-large-vertical $padding-large-horizontal;
-    border-left: none;
+    border-left: 0;
 
     &:active:hover,
     &:active:focus,
@@ -108,8 +108,8 @@ body > header {
       background-color: $brand-primary;
       color: $btn-primary-color;
       border-color: $brand-primary;
-      @include theme-color('accent', 'background-color');
-      @include theme-color('accent', 'border-color');
+      @include theme-color("accent", "background-color");
+      @include theme-color("accent", "border-color");
     }
   }
 }
@@ -125,7 +125,7 @@ body > header {
 .skip-links a {
   color: $navbar-default-link-color;
   background: $navbar-default-bg;
-  @include theme-color('header', 'background-color');
+  @include theme-color("header", "background-color");
 }
 
 // Mobile only

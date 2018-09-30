@@ -3,7 +3,7 @@ body {
 }
 
 a {
-  @include theme-color('link', 'color');
+  @include theme-color("link", "color");
 }
 
 .btn {
@@ -11,24 +11,24 @@ a {
 }
 
 .btn-default {
-  @include theme-color('accent', 'border-color');
-  @include theme-color('accent', 'color');
+  @include theme-color("accent", "border-color");
+  @include theme-color("accent", "color");
 
   &:hover,
   &:focus {
-    @include theme-color('accent', 'border-color', 'darken', 10%);
+    @include theme-color("accent", "border-color", "darken", 10%);
   }
 }
 
 .btn-primary {
-  @include theme-color('accent', 'background-color');
-  @include theme-color('accent', 'border-color');
-  @include theme-contrast-color('accent');
+  @include theme-color("accent", "background-color");
+  @include theme-color("accent", "border-color");
+  @include theme-contrast-color("accent", "color");
 
   &:hover,
   &:focus {
-    @include theme-color('accent', 'background-color', 'darken', 10%);
-    @include theme-color('accent', 'border-color', 'darken', 10%);
+    @include theme-color("accent", "background-color", "darken", 10%);
+    @include theme-color("accent", "border-color", "darken", 10%);
   }
 }
 
@@ -170,7 +170,7 @@ p {
 blockquote {
   padding: 0 20px;
   border-left: 5px solid $brand-primary;
-  @include theme-color('accent', 'border-color');
+  @include theme-color("accent", "border-color");
 
   p,
   ul,
@@ -190,7 +190,7 @@ blockquote {
   }
 }
 
-.captionImage {
+.captionImage { // sass-lint:disable-line class-name-format
   border-bottom: 2px solid $gray-lighter;
 
   p {
