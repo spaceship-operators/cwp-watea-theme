@@ -14,7 +14,7 @@
   @include theme-color('nav', 'background-color');
 
   .btn-link {
-    @include theme-contrast-color('nav');
+    @include theme-contrast-color('nav', 'color');
   }
 }
 
@@ -22,7 +22,7 @@
 .navbar-default .navbar-nav > .open > a,
 .navbar-default .navbar-nav > .open > a:hover {
   background-color: transparent;
-  @include theme-contrast-color('nav');
+  @include theme-contrast-color('nav', 'color');
 }
 
 .main-nav {
@@ -37,19 +37,19 @@
   }
 
   .navbar-nav > li > a {
-    @include theme-contrast-color('nav');
+    @include theme-contrast-color('nav', 'color');
   }
 
   .nav-item.current > a {
     background-color: $brand-primary;
     @include theme-color('accent', 'background-color');
-    @include theme-contrast-color('accent');
+    @include theme-contrast-color('accent', 'color');
 
     &:focus,
     &:hover {
       background-color: $brand-primary;
       @include theme-color('accent', 'background-color');
-      @include theme-contrast-color('accent');
+      @include theme-contrast-color('accent', 'color');
     }
   }
 
@@ -76,7 +76,7 @@
       &:focus .navbar-touch-caret {
         background: $brand-primary;
         @include theme-color('accent', 'background-color');
-        @include theme-contrast-color('accent');
+        @include theme-contrast-color('accent', 'color');
 
         &:hover,
         &:focus {
@@ -154,12 +154,11 @@
 
     .open .dropdown-menu {
       > li > a {
-        padding-top: 10px;
-        padding-bottom: 10px;
-        @include theme-contrast-color('nav');
+        padding: 10px 15px 10px 35px;
+        @include theme-contrast-color('nav', 'color');
 
         &:hover {
-          @include theme-contrast-color('nav');
+          @include theme-contrast-color('nav', 'color');
         }
       }
 
